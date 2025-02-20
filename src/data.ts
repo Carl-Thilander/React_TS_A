@@ -52,25 +52,25 @@ export const mockedBread: Bread[] = [
 
 export const mockedPastry: Pastry[] = [
   {
-    id: "123",
-    slug: "sour-dough",
-    name: "Sour Dough",
+    id: "45663",
+    slug: "pain-au-chocolate",
+    name: "Pain au Chocolate",
     imageURL:
-      "https://i1.wp.com/homesteadandchill.com/wp-content/uploads/2019/02/simple-sourdough-bread-recipe-homestead-feature.jpeg?resize=1140,1069&ssl=1",
+      "https://petitsfrenchies.com/wp-content/uploads/2022/10/shutterstock_1559824892.jpg",
   },
   {
     id: "123",
     slug: "sour-dough",
-    name: "Sour Dough",
+    name: "Cinnamonbun",
     imageURL:
-      "https://i1.wp.com/homesteadandchill.com/wp-content/uploads/2019/02/simple-sourdough-bread-recipe-homestead-feature.jpeg?resize=1140,1069&ssl=1",
+      "https://files.allas.se/uploads/sites/25/2021/08/kanelbullar-i-langpanna-7-scaled.jpg",
   },
   {
     id: "123",
-    slug: "sour-dough",
-    name: "Sour Dough",
+    slug: "Croissants",
+    name: "Croissants",
     imageURL:
-      "https://i1.wp.com/homesteadandchill.com/wp-content/uploads/2019/02/simple-sourdough-bread-recipe-homestead-feature.jpeg?resize=1140,1069&ssl=1",
+      "https://www.galbani.fr/wp-content/uploads/2017/07/Croissants-sucr%C3%A9s_153415341-2.jpeg",
   },
   {
     id: "123",

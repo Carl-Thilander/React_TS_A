@@ -8,10 +8,11 @@ flex-direction: column;
 align-items: center;
 text-decoration: none;
 color: inherit;
+background-color: #F5E1A4;
+border-radius: 10px;
 
 &:hover{
-background-color: ;
-transform: scale(1.2);
+background-color:rgba(245, 225, 164, 0.64);
 }
 `;
 
@@ -27,7 +28,7 @@ const Title = styled.h3`
   margin-top: 8px;
   font-size: 24px;
   font-weight: bold;
-  color: #F5E1A4; /* Ljus beige för att matcha bröd-temat */
+  color: rgb(194, 95, 50); /* Ljus beige för att matcha bröd-temat */
 `;
 
 const RecipeText = styled.span`

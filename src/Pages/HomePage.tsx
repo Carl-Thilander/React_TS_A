@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import BreadCard from '../Components/BreadCard';
-import { mockedBread } from '../data';
+import PastryCard from '../Components/PastryCard';
+import { mockedBread, mockedPastry } from '../data';
 
 
 
@@ -17,10 +18,18 @@ const Title = styled.h2`
 
 const BreadContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;  // Gör så att de går till nästa rad om det inte får plats
-  gap: 16px;        // Lägg till ett gap mellan korten
-  justify-content: flex-start;  // Justera så att korten är vänsterjusterade
+  flex-wrap: wrap;  
+  gap: 16px;        
+  justify-content: flex-start;  
 `;
+
+const PastryContainer = styled.div`
+display: flex;
+  flex-wrap: wrap;  
+  gap: 16px;        
+  justify-content: flex-start;
+`
+
 
 const BreadSection: React.FC = () => {
   return (
@@ -34,7 +43,13 @@ const BreadSection: React.FC = () => {
         </BreadContainer>
 
         <Title>Yummy Pastries</Title>
-        
+
+        <PastryContainer>
+        {mockedPastry.map((pastry) => (
+            <PastryCard key={pastry.id} pastry={pastry} />
+          ))}
+        </PastryContainer>
+
       </Section>
     </div>
   );
