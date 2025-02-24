@@ -66,7 +66,7 @@ export const mockedPastry: Pastry[] = [
       "https://files.allas.se/uploads/sites/25/2021/08/kanelbullar-i-langpanna-7-scaled.jpg",
   },
   {
-    id: "123",
+    id: "321",
     slug: "Croissants",
     name: "Croissants",
     imageURL:

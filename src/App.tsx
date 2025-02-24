@@ -58,7 +58,7 @@ const App: React.FC = () => {
         <span>Right</span>
         <span>Right</span>
         <span>Right</span>
-        <DarkModeButton toggleTheme={toggleTheme}/>
+        <DarkModeButton toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       </Header>
 
       <MainContent>

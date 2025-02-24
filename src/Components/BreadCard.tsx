@@ -11,6 +11,7 @@ color: inherit;
 /* background-color: #F5E1A4; */
 border-radius: 10px;
 background-color: ${({ theme }) => theme.breadCardBackground};
+transition: background-color 0.5s;
 
 &:hover{
 background-color:rgba(245, 225, 164, 0.64);

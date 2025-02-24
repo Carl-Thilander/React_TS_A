@@ -9,6 +9,7 @@ align-items: center;
 text-decoration: none;
 color: inherit;
 background-color: ${({ theme }) => theme.breadCardBackground};
+transition: background-color 0.5s;
 border-radius: 10px;
 
 &:hover{
