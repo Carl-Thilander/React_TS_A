@@ -8,11 +8,11 @@ flex-direction: column;
 align-items: center;
 text-decoration: none;
 color: inherit;
-background-color: #F5E1A4;
+background-color: ${({ theme }) => theme.breadCardBackground};
 border-radius: 10px;
 
 &:hover{
-background-color:rgba(245, 225, 164, 0.64);
+background-color: ${({ theme }) => theme.cardHover};
 }
 `;
 
