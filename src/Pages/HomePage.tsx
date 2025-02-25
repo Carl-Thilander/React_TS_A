@@ -39,15 +39,19 @@ const BreadSection: React.FC = () => {
     queryFn: getMovies
   })
 
+  if (isPending) return 'Loading...'
+
+  if (error) return 'An error has occurred: ' + error.message
+
   // hämtar en lista med filmer
   return (
     <div>
       <Section>
         <Title>Popular bread</Title>
         <BreadContainer>
-          {mockedBread.map((bread) => (
+           {mockedBread.map((bread) => (
             <BreadCard key={bread.id} bread={bread} />
-          ))}
+          ))} 
         </BreadContainer>
 
         <Title>Yummy Pastries</Title>

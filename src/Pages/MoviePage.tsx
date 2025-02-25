@@ -39,7 +39,7 @@ export default function MoviePage() {
   return (
     <Container>
       <Title>{data.Title}</Title>
-      <Image src={data?.Poster}/>
+      <Image src={data.Poster}/>
     </Container>
   );
 }
