@@ -8,13 +8,12 @@ flex-direction: column;
 align-items: center;
 text-decoration: none;
 color: inherit;
-/* background-color: #F5E1A4; */
 border-radius: 10px;
 background-color: ${({ theme }) => theme.breadCardBackground};
 transition: background-color 0.5s;
 
 &:hover{
-background-color:rgba(245, 225, 164, 0.64);
+  background-color: ${({ theme }) => theme.cardHover};
 }
 `;
 
@@ -30,12 +29,12 @@ const Title = styled.h3`
   margin-top: 8px;
   font-size: 24px;
   font-weight: bold;
-  color: rgb(194, 95, 50); /* Ljus beige för att matcha bröd-temat */
+  color: rgb(194, 95, 50);
 `;
 
 const RecipeText = styled.span`
   font-size: 20px;
-  color:rgb(194, 95, 50); /* En mild brun färg för texten */
+  color:rgb(194, 95, 50);
 `;
 
 interface BreadCardProps {

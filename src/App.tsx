@@ -4,22 +4,24 @@ import styled, { ThemeProvider } from 'styled-components';
 import DarkModeButton from './Components/DarkModeButton';
 import { darkTheme, lightTheme } from './Components/theme';
 
-// Stilade komponenter
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  /* color:rgb(185, 135, 26); */
   color: ${({theme}) => theme.textColor};
   transition: color 0.5s, background-color 0.5s;
+  position: relative;
 `;
 
 const Header = styled.header`
   padding: 8px 16px;
   display: flex;
   justify-content: space-between;
-  /* background-color: #F5E1A4; */
   background-color: ${({theme}) => theme.background};
   transition: background-color 0.5s;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  left: 0;
 `;
 
 const MainContent = styled.div`
@@ -28,18 +30,16 @@ const MainContent = styled.div`
 `;
 
 const Sidebar = styled.aside`
-background-color: ${({ theme }) => theme.sidebarBackground};
+background-color: ${({ theme }) => theme.mainBackground};
 transition: background-color 0.5s;
-  /* background-color:rgb(202, 157, 60); bg-slate-800 */
   padding: 16px;
   border-radius: 8px;
-  color: rgb(75, 63, 11);
+  color: ${({theme}) => theme.textColor};
 `;
 
 const Main = styled.main`
 background-color: ${({ theme }) => theme.mainBackground};
 transition: background-color 0.5s;
-  /* background-color: rgb(224, 173, 95); bg-slate-900 */
   padding: 16px;
   border-radius: 8px;
   flex: 1;

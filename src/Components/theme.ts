@@ -1,6 +1,5 @@
 export const lightTheme = {
   background: "#F5E1A4",
-  sidebarBackground: "rgb(202, 157, 60)",
   mainBackground: "rgb(224, 173, 95)",
   textColor: "rgb(185, 135, 26)",
   breadCardBackground: "#F5E1A4",
