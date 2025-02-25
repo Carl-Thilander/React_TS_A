@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 interface DarkModeButtonProps {
@@ -15,7 +14,7 @@ height: 30px;
 border-radius: 5px;
 `
 
-const DarkModeButton: React.FC<DarkModeButtonProps> = ({ toggleTheme, isDarkMode }) => {
+const DarkModeButton = ({ toggleTheme, isDarkMode }: DarkModeButtonProps) => {
   return (
     <Button isDarkMode={isDarkMode} onClick={toggleTheme}>
       Switch to {isDarkMode ? 'Light' : 'Dark'} Mode

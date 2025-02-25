@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import styled from 'styled-components';
+import { getMovies } from '../Api';
 import BreadCard from '../Components/BreadCard';
 import PastryCard from '../Components/PastryCard';
 import { mockedBread, mockedPastry } from '../data';
@@ -32,6 +34,12 @@ display: flex;
 
 
 const BreadSection: React.FC = () => {
+  const { isPending, error, data } = useQuery({
+    queryKey: ['movies'],
+    queryFn: getMovies
+  })
+
+  // hämtar en lista med filmer
   return (
     <div>
       <Section>

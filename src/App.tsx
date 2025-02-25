@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import styled, { ThemeProvider } from "styled-components";
 import DarkModeButton from "./Components/DarkModeButton";
 import { darkTheme, lightTheme } from "./Components/theme";
@@ -16,12 +16,14 @@ const Header = styled.header`
   padding: 8px 16px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: ${({ theme }) => theme.background};
   transition: background-color 0.5s;
   position: sticky;
   z-index: 100;
   top: 0;
   left: 0;
+  text-decoration: none;
 `;
 
 const MainContent = styled.div`
@@ -45,7 +47,8 @@ const Main = styled.main`
   flex: 1;
 `;
 
-const App = () => {
+
+export default function App(){
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleTheme = () => setIsDarkMode((prev) => !prev);
@@ -54,10 +57,9 @@ const App = () => {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Container>
         <Header>
-          <h1>Bread Page</h1>
-          <span>Right</span>
-          <span>Right</span>
-          <span>Right</span>
+          <Link to="" style={{ textDecoration: "none", }} >
+            <h1>MoviePage</h1>
+          </Link>
           <DarkModeButton toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         </Header>
 
@@ -72,4 +74,4 @@ const App = () => {
   );
 };
 
-export default App;
+

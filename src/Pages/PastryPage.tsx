@@ -1,18 +1,35 @@
 import { useParams } from "react-router";
+import styled from "styled-components";
 import { mockedPastry } from "../data";
 
-export default function BreadPage(){
-    const params = useParams();
-    const pastry = mockedPastry.find((p) => p.id === params.id);
+const Container = styled.div`
+  text-align: left;
+  padding: 20px;
+`;
 
-    if(!pastry){
-        return <p>Missing pastry...</p>
-    }
+const Title = styled.h2`
+  font-size: 24px;
+  margin-bottom: 10px;
+`;
 
-    return (
-        <div>
-            <h2>{pastry.name}</h2>
-            <img src={pastry.imageURL}/>
-        </div>
-    )
+const Image = styled.img<{ size?: string }>`
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+`;
+
+export default function BreadPage() {
+  const params = useParams();
+  const pastry = mockedPastry.find((p) => p.id === params.id);
+
+  if (!pastry) {
+    return <p>Missing pastry...</p>;
+  }
+
+  return (
+    <Container>
+      <Title>{pastry.name}</Title>
+      <Image src={pastry.imageURL}/>
+    </Container>
+  );
 }
