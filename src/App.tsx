@@ -33,6 +33,7 @@ const MainContent = styled.div`
 
 const Title = styled(Link)`
 text-decoration: none;
+font-size: 30px;
 color: white;
 padding: 5px;
 box-shadow: 2px 2px #141414;
@@ -65,7 +66,7 @@ export default function App(){
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Container>
         <Header>
-          <Title to="/" style={{ textDecoration: "none", }} >
+          <Title to="/">
             <h1>MoviePage</h1>
           </Title>
           <DarkModeButton toggleTheme={toggleTheme} isDarkMode={isDarkMode} />

@@ -18,6 +18,10 @@ const MovieContainer = styled.div`
   flex-wrap: wrap;
   gap: 40px;
   justify-content: flex-start;
+  & :hover{
+    background-color: gray;
+    
+  }
 `;
 
 const Cardlink = styled(Link)`
@@ -35,10 +39,7 @@ const MovieCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  & :hover{
-    background-color: gray;
-    transform: scale(1.1);
-  }
+ 
 `;
 
 export default function MovieSection(){
@@ -47,7 +48,7 @@ export default function MovieSection(){
     queryFn: getMovies, 
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div>var god dröj</div>;
   if (error instanceof Error) return <div>An error has occurred: {error.message}</div>;
 
   if (!data) {
