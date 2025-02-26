@@ -14,7 +14,7 @@ const Title = styled.h2`
 `;
 
 const Image = styled.img<{ size?: string }>`
-  width: 500px;
+  width: 400px;
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -28,11 +28,9 @@ const Description = styled.p`
 const InfoContainer = styled.div`
 display: flex;
 flex-direction: column;
-background-color: rgb(54, 116, 181);
+/* background-color: rgb(54, 116, 181); */
 border-radius: 10px;
 padding: 15px;
-height: auto;
-width: auto;
 `
 
 const Details = styled.div`

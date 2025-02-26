@@ -1,7 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router';
 import styled from 'styled-components';
-import { getMovies, Movie } from '../api';
+import MovieCard from '../Components/MovieCard';
 
 const Section = styled.section`
   margin: 20px;
@@ -18,56 +16,14 @@ const MovieContainer = styled.div`
   flex-wrap: wrap;
   gap: 40px;
   justify-content: flex-start;
-  & :hover{
-    background-color: gray;
-    
-  }
-`;
-
-const Cardlink = styled(Link)`
-text-decoration: none;
-color: white;
-font-size: larger;
-`
-
-const MovieCard = styled.div`
-  width: 200px;
-  height: auto;
-  border-radius: 8px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
- 
 `;
 
 export default function MovieSection(){
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['movies'],
-    queryFn: getMovies, 
-  });
-
-  if (isLoading) return <div>var god dröj</div>;
-  if (error instanceof Error) return <div>An error has occurred: {error.message}</div>;
-
-  if (!data) {
-    return <p>No movies found...</p>;
-  }
-console.log(data);
   return (
     <Section>
       <Title>Your daily selection of movies</Title>
       <MovieContainer>
-        {data.Search.map((movie: Movie) => (
-          <MovieCard key={movie.imdbID}>
-            <Cardlink to={`/movie/${movie.imdbID}`}>
-              <img src={movie.Poster} width="200px" height="300px" />
-              <h3>{movie.Title}</h3>
-              <h3>{movie.Year}</h3>
-            </Cardlink>
-          </MovieCard>
-        ))}
+            <MovieCard/>
       </MovieContainer>
     </Section>
   );

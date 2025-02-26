@@ -1,52 +1,63 @@
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
 import styled from "styled-components";
-import { Movie } from "../api";
+import { getMovies, Movie } from "../api";
 
-const CardLink = styled(Link)`
-padding: 16px;
-display: flex;
-flex-direction: column;
-align-items: center;
+const Cardlink = styled(Link)`
 text-decoration: none;
-color: inherit;
-border-radius: 10px;
-background-color: ${({ theme }) => theme.breadCardBackground};
-transition: background-color 0.5s;
+color: white;
+font-size: larger;
+`
 
-&:hover{
-  background-color: ${({ theme }) => theme.cardHover};
-}
-`;
-
-const MovieImage = styled.img`
-border-radius: 10%;
-width: 280px;
-height: 280px;
-object-fit: cover;
-`;
-
-
-const Title = styled.h3`
-  margin-top: 8px;
-  font-size: 24px;
-  font-weight: bold;
-  color: rgb(194, 95, 50);
-`;
-
-const RecipeText = styled.span`
-  font-size: 20px;
-  color:rgb(194, 95, 50);
+const MovieContainer = styled.div`
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
 `;
 
 
 
-export default function MovieCardPic(movie: Movie){
+const MovieDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: flex-start;
+  & :hover{
+    background-color: gray;
+  }
+`;
+
+
+
+export default function MovieCard(){
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['movies'],
+        queryFn: getMovies, 
+      });
+    
+      if (isLoading) return <div>var god droj</div>;
+      if (error instanceof Error) return <div>An error has occurred: {error.message}</div>;
+    
+      if (!data) {
+        return <p>No movies found...</p>;
+      }
     return (
-<CardLink to={`/movie/${movie.imdbID}`}>
-    <img src={movie.Poster} alt={movie.Title} width="100%" height="auto" />
-          <p>{movie.Title}</p>
-          <p> {movie.imdbRating}</p>
-</CardLink>
+        <MovieDiv>
+            {data.Search.map((movie: Movie) => (
+                  <MovieContainer key={movie.imdbID}>
+                    <Cardlink to={`/movie/${movie.imdbID}`}>
+                      <img src={movie.Poster} width="200px" height="300px" />
+                      <h3>{movie.Title}</h3>
+                      <h3>{movie.Year}</h3>
+                    </Cardlink>
+                  </MovieContainer>
+                ))}
+        </MovieDiv>
 
     )
 }
