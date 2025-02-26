@@ -12,6 +12,7 @@ border: none;
 width: auto;
 height: 30px;
 border-radius: 5px;
+left: 10px;
 `
 
 const DarkModeButton = ({ toggleTheme, isDarkMode }: DarkModeButtonProps) => {

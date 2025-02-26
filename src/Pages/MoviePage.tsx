@@ -21,24 +21,32 @@ const Image = styled.img<{ size?: string }>`
 `;
 
 const Description = styled.p`
-  font-size: 16px;
-  color: #555;
+  font-size: 22px;
+  color: #ffff;
 `;
+
+const InfoContainer = styled.div`
+display: flex;
+flex-direction: column;
+`
 
 const Details = styled.div`
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 `;
 
 const DetailItem = styled.div`
   margin-bottom: 8px;
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 export default function MoviePage() {
   const params = useParams();
   const { isLoading, error, data } = useQuery({
     queryKey: ['movie', params.id],
-    queryFn: () => getMovie(params.id), // Hämta filminformation baserat på ID
+    queryFn: () => getMovie(params.id), 
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -51,10 +59,10 @@ export default function MoviePage() {
   return (
     <Container>
       <Title>{data.Title}</Title>
-      <Image src={data.Poster} alt={data.Title} />
-      <Description>{data.Plot}</Description>
-
       <Details>
+      <Image src={data.Poster} alt={data.Title} />
+      <InfoContainer>
+      <Description><i>Plot:</i> {data.Plot}</Description>
         <DetailItem><strong>Year:</strong> {data.Year}</DetailItem>
         <DetailItem><strong>Rated:</strong> {data.Rated}</DetailItem>
         <DetailItem><strong>Director:</strong> {data.Director}</DetailItem>
@@ -62,6 +70,7 @@ export default function MoviePage() {
         <DetailItem><strong>Genre:</strong> {data.Genre}</DetailItem>
         <DetailItem><strong>IMDB Rating:</strong> {data.imdbRating}</DetailItem>
         <DetailItem><strong>Language:</strong> {data.Language}</DetailItem>
+        </InfoContainer>
       </Details>
     </Container>
   );

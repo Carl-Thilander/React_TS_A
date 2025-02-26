@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router'; // Importera Link för navigering till filmsidan
+import { Link } from 'react-router';
 import styled from 'styled-components';
 import { getMovies, Movie } from '../api';
 
@@ -20,16 +20,23 @@ const MovieContainer = styled.div`
   justify-content: flex-start;
 `;
 
+const Cardlink = styled(Link)`
+text-decoration: none;
+color: white;
+`
+
 const MovieCard = styled.div`
-  width: 150px;
-  height: 250px;
-  background-color: #f3f3f3;
+  width: 200px;
+  height: auto;
+  background-color: #4f5e86;
   border-radius: 8px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  text-decoration: none;
+  color: wheat;
 `;
 
 const MovieSection: React.FC = () => {
@@ -51,11 +58,11 @@ const MovieSection: React.FC = () => {
       <MovieContainer>
         {data.Search.map((movie: Movie) => (
           <MovieCard key={movie.imdbID}>
-            <Link to={`/movie/${movie.imdbID}`}>
-              <img src={movie.Poster} alt={movie.Title} width="100%" height="auto" />
+            <Cardlink to={`/movie/${movie.imdbID}`}>
+              <img src={movie.Poster} width="100%" height="auto" />
+              <p> {movie.imdbRating}</p>
               <p>{movie.Title}</p>
-              <span>{movie.Year}</span>
-            </Link>
+            </Cardlink>
           </MovieCard>
         ))}
       </MovieContainer>

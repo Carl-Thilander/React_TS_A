@@ -44,7 +44,7 @@ export async function getMovie(id?: string) {
 
 export async function getMovies() {
   const response = await fetch(
-    `https://www.omdbapi.com/?s=disney&page=1&apikey=76b66c`
+    `https://www.omdbapi.com/?s=ocean&page=1&apikey=76b66c`
   );
 
   return response.json() as Promise<MovieSearchResponse>;

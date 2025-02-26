@@ -1,8 +1,9 @@
 export const lightTheme = {
-  background: "#F5E1A4",
-  mainBackground: "rgb(224, 173, 95)",
-  textColor: "rgb(185, 135, 26)",
+  background: "rgb(54, 116, 181)",
+  mainBackground: "rgb(87, 143, 202)",
+  textColor: "rgb(209, 248, 239)",
   breadCardBackground: "#F5E1A4",
+  sidebarBackground: "rgb(161, 227, 249)",
 };
 
 export const darkTheme = {

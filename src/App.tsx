@@ -28,11 +28,17 @@ const Header = styled.header`
 
 const MainContent = styled.div`
   display: flex;
-  gap: 8px;
 `;
 
+const Title = styled(Link)`
+text-decoration: none;
+color: white;
+padding: 5px;
+box-shadow: 2px 2px #141414;
+`
+
 const Sidebar = styled.aside`
-  background-color: ${({ theme }) => theme.mainBackground};
+  background-color: ${({ theme }) => theme.sidebarBackground};
   transition: background-color 0.5s;
   padding: 16px;
   border-radius: 8px;
@@ -57,14 +63,14 @@ export default function App(){
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Container>
         <Header>
-          <Link to="" style={{ textDecoration: "none", }} >
+          <Title to="/" style={{ textDecoration: "none", }} >
             <h1>MoviePage</h1>
-          </Link>
+          </Title>
           <DarkModeButton toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         </Header>
 
         <MainContent>
-          <Sidebar>Bread-list maybe?</Sidebar>
+          <Sidebar><input type="text" placeholder="Search for movie"></input></Sidebar>
           <Main>
             <Outlet /> {/* Detta ändras beroende på URL */}
           </Main>
