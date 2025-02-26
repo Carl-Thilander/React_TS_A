@@ -28,6 +28,11 @@ const Description = styled.p`
 const InfoContainer = styled.div`
 display: flex;
 flex-direction: column;
+background-color: rgb(54, 116, 181);
+border-radius: 10px;
+padding: 15px;
+height: auto;
+width: auto;
 `
 
 const Details = styled.div`
@@ -55,7 +60,7 @@ export default function MoviePage() {
   if (!data) {
     return <p>Movie not found...</p>;
   }
-
+console.log(data);
   return (
     <Container>
       <Title>{data.Title}</Title>

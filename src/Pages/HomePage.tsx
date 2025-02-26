@@ -16,30 +16,32 @@ const Title = styled.h2`
 const MovieContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 40px;
   justify-content: flex-start;
 `;
 
 const Cardlink = styled(Link)`
 text-decoration: none;
 color: white;
+font-size: larger;
 `
 
 const MovieCard = styled.div`
   width: 200px;
   height: auto;
-  background-color: #4f5e86;
   border-radius: 8px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
-  text-decoration: none;
-  color: wheat;
+  text-align: left;
+  & :hover{
+    background-color: gray;
+    transform: scale(1.1);
+  }
 `;
 
-const MovieSection: React.FC = () => {
+export default function MovieSection(){
   const { isLoading, error, data } = useQuery({
     queryKey: ['movies'],
     queryFn: getMovies, 
@@ -51,7 +53,7 @@ const MovieSection: React.FC = () => {
   if (!data) {
     return <p>No movies found...</p>;
   }
-
+console.log(data);
   return (
     <Section>
       <Title>Your daily selection of movies</Title>
@@ -59,9 +61,9 @@ const MovieSection: React.FC = () => {
         {data.Search.map((movie: Movie) => (
           <MovieCard key={movie.imdbID}>
             <Cardlink to={`/movie/${movie.imdbID}`}>
-              <img src={movie.Poster} width="100%" height="auto" />
-              <p> {movie.imdbRating}</p>
-              <p>{movie.Title}</p>
+              <img src={movie.Poster} width="200px" height="300px" />
+              <h3>{movie.Title}</h3>
+              <h3>{movie.Year}</h3>
             </Cardlink>
           </MovieCard>
         ))}
@@ -70,4 +72,3 @@ const MovieSection: React.FC = () => {
   );
 };
 
-export default MovieSection;

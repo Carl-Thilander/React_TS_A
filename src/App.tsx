@@ -28,6 +28,7 @@ const Header = styled.header`
 
 const MainContent = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const Title = styled(Link)`
@@ -43,6 +44,7 @@ const Sidebar = styled.aside`
   padding: 16px;
   border-radius: 8px;
   color: ${({ theme }) => theme.textColor};
+  
 `;
 
 const Main = styled.main`
@@ -70,7 +72,9 @@ export default function App(){
         </Header>
 
         <MainContent>
-          <Sidebar><input type="text" placeholder="Search for movie"></input></Sidebar>
+          <Sidebar>
+            <h2>Top rated movies today</h2>
+          </Sidebar>
           <Main>
             <Outlet /> {/* Detta ändras beroende på URL */}
           </Main>
