@@ -1,4 +1,4 @@
-interface Movie {
+export interface Movie {
   Title: string;
   Year: string;
   Rated: string;
@@ -28,6 +28,12 @@ interface Movie {
   Response: string;
 }
 
+export interface MovieSearchResponse {
+  Search: Movie[];
+  totalResults: string;
+  Response: string;
+}
+
 export async function getMovie(id?: string) {
   const response = await fetch(
     `https://www.omdbapi.com/?i=${id}&apikey=76b66c`
@@ -38,8 +44,8 @@ export async function getMovie(id?: string) {
 
 export async function getMovies() {
   const response = await fetch(
-    `https://www.omdbapi.com/?s=avengers&apikey=76b66c`
+    `https://www.omdbapi.com/?s=disney&page=1&apikey=76b66c`
   );
 
-  return response.json() as Promise<Movie[]>;
+  return response.json() as Promise<MovieSearchResponse>;
 }

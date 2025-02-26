@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router'; // Importera Link för navigering till filmsidan
 import styled from 'styled-components';
-import { getMovies } from '../api';
+import { getMovies, Movie } from '../api';
 
 const Section = styled.section`
   margin: 20px;
@@ -34,8 +34,8 @@ const MovieCard = styled.div`
 
 const MovieSection: React.FC = () => {
   const { isLoading, error, data } = useQuery({
-    queryKey: ['movies'], // Använder samma queryKey för att få alla filmer
-    queryFn: getMovies, // Kallar getMovies för att hämta Avengers-filmer
+    queryKey: ['movies'],
+    queryFn: getMovies, 
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -47,9 +47,9 @@ const MovieSection: React.FC = () => {
 
   return (
     <Section>
-      <Title>Avengers Movies</Title>
+      <Title>Your daily selection of movies</Title>
       <MovieContainer>
-        {data.Search.map((movie) => (
+        {data.Search.map((movie: Movie) => (
           <MovieCard key={movie.imdbID}>
             <Link to={`/movie/${movie.imdbID}`}>
               <img src={movie.Poster} alt={movie.Title} width="100%" height="auto" />
