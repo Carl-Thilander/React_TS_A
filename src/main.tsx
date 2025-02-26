@@ -3,8 +3,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router"
 import App from './App.tsx'
-import HomePage from './Pages/HomePage.tsx'
-import MoviePage from './Pages/oldMoviePage.tsx'
+import MovieSection from './Pages/HomePage.tsx'
+import MoviePage from './Pages/MoviePage.tsx'
 import PastryPage from './Pages/PastryPage.tsx'
 
 const queryClient = new QueryClient()
@@ -16,8 +16,8 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}>
-        <Route index element={<HomePage/>} />
-        <Route path="/movie" element={<MoviePage/>}/>
+        <Route index element={<MovieSection/>} />
+        <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="pastry/:slug/:id" element={<PastryPage/>}/>
         </Route>
       </Routes>

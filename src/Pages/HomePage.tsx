@@ -1,12 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import { Link } from 'react-router'; // Importera Link för navigering till filmsidan
 import styled from 'styled-components';
-import { getMovies } from '../Api';
-import BreadCard from '../Components/BreadCard';
-import PastryCard from '../Components/PastryCard';
-import { mockedBread, mockedPastry } from '../data';
-
-
+import { getMovies } from '../api';
 
 const Section = styled.section`
   margin: 20px;
@@ -18,53 +13,54 @@ const Title = styled.h2`
   margin-bottom: 16px;
 `;
 
-const BreadContainer = styled.div`
+const MovieContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;  
-  gap: 16px;        
-  justify-content: flex-start;  
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
 `;
 
-const PastryContainer = styled.div`
-display: flex;
-  flex-wrap: wrap;  
-  gap: 16px;        
-  justify-content: flex-start;
-`
+const MovieCard = styled.div`
+  width: 150px;
+  height: 250px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+`;
 
+const MovieSection: React.FC = () => {
+  const { isLoading, error, data } = useQuery({
+    queryKey: ['movies'], // Använder samma queryKey för att få alla filmer
+    queryFn: getMovies, // Kallar getMovies för att hämta Avengers-filmer
+  });
 
-const BreadSection: React.FC = () => {
-  const { isPending, error, data } = useQuery({
-    queryKey: ['movies'],
-    queryFn: getMovies
-  })
+  if (isLoading) return <div>Loading...</div>;
+  if (error instanceof Error) return <div>An error has occurred: {error.message}</div>;
 
-  if (isPending) return 'Loading...'
+  if (!data) {
+    return <p>No movies found...</p>;
+  }
 
-  if (error) return 'An error has occurred: ' + error.message
-
-  // hämtar en lista med filmer
   return (
-    <div>
-      <Section>
-        <Title>Popular bread</Title>
-        <BreadContainer>
-           {mockedBread.map((bread) => (
-            <BreadCard key={bread.id} bread={bread} />
-          ))} 
-        </BreadContainer>
-
-        <Title>Yummy Pastries</Title>
-
-        <PastryContainer>
-        {mockedPastry.map((pastry) => (
-            <PastryCard key={pastry.id} pastry={pastry} />
-          ))}
-        </PastryContainer>
-
-      </Section>
-    </div>
+    <Section>
+      <Title>Avengers Movies</Title>
+      <MovieContainer>
+        {data.Search.map((movie) => (
+          <MovieCard key={movie.imdbID}>
+            <Link to={`/movie/${movie.imdbID}`}>
+              <img src={movie.Poster} alt={movie.Title} width="100%" height="auto" />
+              <p>{movie.Title}</p>
+              <span>{movie.Year}</span>
+            </Link>
+          </MovieCard>
+        ))}
+      </MovieContainer>
+    </Section>
   );
 };
 
-export default BreadSection;
+export default MovieSection;
