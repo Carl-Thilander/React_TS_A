@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router";
 import styled, { ThemeProvider } from "styled-components";
 import DarkModeButton from "./Components/DarkModeButton";
+import SideBar from "./Components/SideBar";
 import { darkTheme, lightTheme } from "./Components/theme";
 
 const Container = styled.div`
@@ -33,20 +34,20 @@ const MainContent = styled.div`
 
 const Title = styled(Link)`
 text-decoration: none;
-font-size: 30px;
+font-size: 20px;
 color: white;
 padding: 5px;
 box-shadow: 2px 2px #141414;
 `
 
-const Sidebar = styled.aside`
-  background-color: ${({ theme }) => theme.sidebarBackground};
-  transition: background-color 0.5s;
-  padding: 16px;
-  border-radius: 8px;
-  color: ${({ theme }) => theme.textColor};
+// const Sidebar = styled.aside`
+//   background-color: ${({ theme }) => theme.sidebarBackground};
+//   transition: background-color 0.5s;
+//   padding: 16px;
+//   border-radius: 8px;
+//   color: ${({ theme }) => theme.textColor};
   
-`;
+// `;
 
 const Main = styled.main`
   background-color: ${({ theme }) => theme.mainBackground};
@@ -71,11 +72,9 @@ export default function App(){
           </Title>
           <DarkModeButton toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         </Header>
-
         <MainContent>
-          <Sidebar>
-            <h2>Top rated movies today</h2>
-          </Sidebar>
+        <SideBar/>
+          
           <Main>
             <Outlet /> {/* Detta ändras beroende på URL */}
           </Main>
