@@ -46,17 +46,7 @@ export async function getMovies(query: string) {
   const response = await fetch(
     `https://www.omdbapi.com/?s=${encodeURIComponent(
       query
-    )}&apikey=76b66c&page=1`
-  );
-
-  return response.json() as Promise<MovieSearchResponse>;
-}
-
-export async function searchMovies(query: string, page: number = 1) {
-  const response = await fetch(
-    `https://www.omdbapi.com/?s=${encodeURIComponent(
-      query
-    )}&apikey=76b66c&page=${page}`
+    )}&type=movie&apikey=76b66c&page=1`
   );
 
   return response.json() as Promise<MovieSearchResponse>;
