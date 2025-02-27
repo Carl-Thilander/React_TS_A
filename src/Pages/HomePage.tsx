@@ -26,7 +26,7 @@ export default function MovieSection(){
   return (
 
     <Section>
-      <Title>Your daily selection of movies</Title>
+      <Title>Enjoy the Star Wars collection or search for your favorite movie in the bar below!</Title>
       <MovieContainer>
             <MovieSearch onQuery={setQuery}/>
             <MovieCard searchQuery={query}/>

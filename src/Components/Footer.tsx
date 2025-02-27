@@ -6,13 +6,10 @@ justify-content: center;
 padding: 10px;
 background-color: ${({ theme }) => theme.background};
 `
-
-
-
 export default function Footer(){
     return (
         <FooterInfo>
-        <h2>This is a footer</h2>
+        <h2>If you liked this page make sure to follow me! 👍</h2>
         </FooterInfo>
     )
 }

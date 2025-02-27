@@ -13,8 +13,8 @@ const Title = styled.h2`
   margin-bottom: 10px;
 `;
 
-const Image = styled.img<{ size?: string }>`
-  width: 400px;
+const Image = styled.img`
+  width: auto;
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -31,6 +31,7 @@ flex-direction: column;
 background-color: ${({ theme }) => theme.movieCardBackground};
 border-radius: 10px;
 padding: 15px;
+width: 60%;
 `
 
 const Details = styled.div`
@@ -38,6 +39,7 @@ const Details = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  flex-wrap: wrap;
 `;
 
 const DetailItem = styled.div`
@@ -58,7 +60,7 @@ export default function MoviePage() {
   if (!data) {
     return <p>Movie not found...</p>;
   }
-console.log(data);
+
   return (
     <Container>
       <Title>{data.Title}</Title>

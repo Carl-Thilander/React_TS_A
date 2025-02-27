@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
-  padding: 8px 16px;
+  padding: 16px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,6 +25,8 @@ const Header = styled.header`
   top: 0;
   left: 0;
   text-decoration: none;
+  flex-wrap: wrap;
+  gap: 30px;
 `;
 
 const MainContent = styled.div`
@@ -34,20 +36,11 @@ const MainContent = styled.div`
 
 const Title = styled(Link)`
 text-decoration: none;
-font-size: 20px;
+font-size: 1rem;
 color: white;
 padding: 5px;
 box-shadow: 2px 2px #141414;
 `
-
-// const Sidebar = styled.aside`
-//   background-color: ${({ theme }) => theme.sidebarBackground};
-//   transition: background-color 0.5s;
-//   padding: 16px;
-//   border-radius: 8px;
-//   color: ${({ theme }) => theme.textColor};
-  
-// `;
 
 const Main = styled.main`
   background-color: ${({ theme }) => theme.mainBackground};
@@ -59,7 +52,7 @@ const Main = styled.main`
 
 
 export default function App(){
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleTheme = () => setIsDarkMode((prev) => !prev);
 

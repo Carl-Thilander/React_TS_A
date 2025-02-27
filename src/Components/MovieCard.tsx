@@ -30,8 +30,10 @@ const MovieDiv = styled.div`
   }
 `;
 
+
+
 interface Props {
-  searchQuery: string
+  searchQuery: string;
 }
 
 export default function MovieCard(props: Props){
@@ -40,7 +42,7 @@ export default function MovieCard(props: Props){
         queryFn: () => getMovies(props.searchQuery), 
       });
     
-      if (isLoading) return <div>var god droj</div>;
+      if (isLoading) return <div>Content is loading...</div>;
       if (error instanceof Error) return <div>An error has occurred: {error.message}</div>;
     
       if (!data) {
