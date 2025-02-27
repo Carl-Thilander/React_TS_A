@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router";
 import styled, { ThemeProvider } from "styled-components";
 import DarkModeButton from "./Components/DarkModeButton";
+import Footer from "./Components/Footer";
 import { darkTheme, lightTheme } from "./Components/theme";
 
 const Container = styled.div`
@@ -76,6 +77,7 @@ export default function App(){
             <Outlet /> {/* Detta ändras beroende på URL */}
           </Main>
         </MainContent>
+        <Footer/>
       </Container>
     </ThemeProvider>
   );

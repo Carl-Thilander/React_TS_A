@@ -28,7 +28,7 @@ const Description = styled.p`
 const InfoContainer = styled.div`
 display: flex;
 flex-direction: column;
-/* background-color: rgb(54, 116, 181); */
+background-color: ${({ theme }) => theme.movieCardBackground};
 border-radius: 10px;
 padding: 15px;
 `

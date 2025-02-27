@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import MovieCard from '../Components/MovieCard';
-import MovieSearch from '../Components/SideBar';
+import MovieSearch from '../Components/MovieSearch';
 
 const Section = styled.section`
   margin: 20px;

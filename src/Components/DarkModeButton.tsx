@@ -10,9 +10,10 @@ padding: 5px 10px;
 cursor: pointer;
 border: none;
 width: auto;
-height: 30px;
+height: auto;
 border-radius: 5px;
 left: 10px;
+background-color: ${({ theme }) => theme.buttonBackground};
 `
 
 const DarkModeButton = ({ toggleTheme, isDarkMode }: DarkModeButtonProps) => {

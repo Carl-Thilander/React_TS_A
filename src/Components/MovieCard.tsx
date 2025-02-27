@@ -20,8 +20,6 @@ const MovieContainer = styled.div`
   text-align: left;
 `;
 
-
-
 const MovieDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
