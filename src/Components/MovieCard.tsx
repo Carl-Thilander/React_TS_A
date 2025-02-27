@@ -30,6 +30,12 @@ const MovieDiv = styled.div`
   }
 `;
 
+const MoviePoster = styled.img`
+width: 200px;
+height: 300px;
+border-radius: 10px;
+`
+
 
 
 interface Props {
@@ -53,7 +59,7 @@ export default function MovieCard(props: Props){
             {data.Search.map((movie: Movie) => (
                   <MovieContainer key={movie.imdbID}>
                     <Cardlink to={`/movie/${movie.imdbID}`}>
-                      <img src={movie.Poster} width="200px" height="300px" />
+                    <MoviePoster src={movie.Poster}/>
                       <h3>{movie.Title}</h3>
                       <h3>{movie.Year}</h3>
                     </Cardlink>

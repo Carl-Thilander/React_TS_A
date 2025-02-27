@@ -5,12 +5,12 @@ import { getMovie } from "../api";
 
 const Container = styled.div`
   text-align: left;
-  padding: 20px;
 `;
 
 const Title = styled.h2`
   font-size: 28px;
   margin-bottom: 10px;
+  align-items: center;
 `;
 
 const Image = styled.img`
@@ -21,7 +21,7 @@ const Image = styled.img`
 `;
 
 const Description = styled.p`
-  font-size: 22px;
+  font-size: 26px;
   color: #ffff;
 `;
 
@@ -30,8 +30,9 @@ display: flex;
 flex-direction: column;
 background-color: ${({ theme }) => theme.movieCardBackground};
 border-radius: 10px;
-padding: 15px;
-width: 60%;
+padding: 25px;
+flex-wrap: wrap;
+width: 70%;
 `
 
 const Details = styled.div`
@@ -40,11 +41,14 @@ const Details = styled.div`
   flex-direction: row;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 `;
 
 const DetailItem = styled.div`
-  margin-bottom: 8px;
-  font-size: 18px;
+  margin-bottom: 12px;
+  padding-left: 10px;
+  font-size: 24px;
 `;
 
 export default function MoviePage() {

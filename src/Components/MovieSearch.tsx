@@ -47,7 +47,7 @@ export default function MovieSearch(props: Props) {
       <SearchContainer>
         <Input
           type="text"
-          placeholder="Search movie..."
+          placeholder="Search any movie..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
