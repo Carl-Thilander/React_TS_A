@@ -3,8 +3,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router"
 import App from './App.tsx'
-import MovieSection from './Pages/HomePage.tsx'
 import MoviePage from './Pages/MoviePage.tsx'
+import MovieSection from './Pages/MovieSection.tsx'
 import NotFoundPage from './Pages/NotFoundPage.tsx'
 
 const queryClient = new QueryClient()
