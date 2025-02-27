@@ -61,7 +61,7 @@ export default function App(){
       <Container>
         <Header>
           <Title to="/">
-            <h1>MoviePage</h1>
+            <h1>MoviePage📽️</h1>
           </Title>
           <DarkModeButton toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         </Header>
