@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router";
 import styled, { ThemeProvider } from "styled-components";
 import DarkModeButton from "./Components/DarkModeButton";
-import SideBar from "./Components/SideBar";
 import { darkTheme, lightTheme } from "./Components/theme";
 
 const Container = styled.div`
@@ -73,8 +72,6 @@ export default function App(){
           <DarkModeButton toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         </Header>
         <MainContent>
-        <SideBar/>
-          
           <Main>
             <Outlet /> {/* Detta ändras beroende på URL */}
           </Main>

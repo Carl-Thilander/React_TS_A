@@ -28,16 +28,18 @@ const MovieDiv = styled.div`
   gap: 40px;
   justify-content: flex-start;
   & :hover{
-    background-color: gray;
+    background-color: ${({ theme }) => theme.cardHover};
   }
 `;
 
+interface Props {
+  searchQuery: string
+}
 
-
-export default function MovieCard(){
+export default function MovieCard(props: Props){
     const { isLoading, error, data } = useQuery({
-        queryKey: ['movies'],
-        queryFn: getMovies, 
+        queryKey: ['movies', props.searchQuery],
+        queryFn: () => getMovies(props.searchQuery), 
       });
     
       if (isLoading) return <div>var god droj</div>;

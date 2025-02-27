@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import MovieCard from '../Components/MovieCard';
+import MovieSearch from '../Components/SideBar';
 
 const Section = styled.section`
   margin: 20px;
@@ -19,11 +21,15 @@ const MovieContainer = styled.div`
 `;
 
 export default function MovieSection(){
+  const [query, setQuery] = useState("Star Wars");
+
   return (
+
     <Section>
       <Title>Your daily selection of movies</Title>
       <MovieContainer>
-            <MovieCard/>
+            <MovieSearch onQuery={setQuery}/>
+            <MovieCard searchQuery={query}/>
       </MovieContainer>
     </Section>
   );
